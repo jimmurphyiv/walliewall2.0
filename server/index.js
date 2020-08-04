@@ -1,5 +1,4 @@
 require('dotenv').config();
-const aws = require('aws-sdk')
 const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
@@ -7,12 +6,10 @@ const mainCtrl = require('./Controllers/mainCtrl');
 const mailCtrl = require('./Controllers/mailCtrl');
 const authCtrl = require('./Controllers/authCtrl');
 
+
 const {SERVER_PORT,
     CONNECTION_STRING,
     SESSION_SECRET,
-    S3_BUCKET,
-    AWS_ACCESS_KEY_ID,
-    AWS_SECRET_ACCESS_KEY,
 } = process.env
 
 const app =express();
@@ -34,39 +31,7 @@ massive({
     console.log('db ALL GOOD')
 })
 
-app.get('/api/signs3', (req, res) => {
-// console.log('hit s3')
-aws.config = {
-    region: 'us-east-2',
-    accessKeyId: AWS_ACCESS_KEY_ID,
-    secretAccessKey: AWS_SECRET_ACCESS_KEY
-}
-const s3 = new aws.S3({ signatureVersion: 'v4' });
-const fileName = req.query['file-name'];
-const fileType = req.query['file-type'];
-const s3Params = {
-    Bucket: S3_BUCKET,
-    Key: fileName,
-    Expires: 60,
-    ContentType: fileType,
-    ACL: 'public-read'
-    };
-  
-    
-s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if (err) {
-    console.log('-------',err);
-        return res.end();
-    }
-    console.log('hit s3')
-const returnData = {
-    signedRequest: data,
-    url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
-    };
-    console.log(returnData)
-    res.status(200).send(returnData)
-    });
-});
+
 
 //Authorization 
 app.post('/auth/register',  authCtrl.register);
