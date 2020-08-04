@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {getUser} from '../../Dux/authReducer';
-import MyCarousel from '../../Components/My Carousel/MyCarousel';
+import MyCarousel from '../../Components/MyCarousel/MyCarousel';
 import './home.css';
 import Nav from '../Nav/Nav';
 
