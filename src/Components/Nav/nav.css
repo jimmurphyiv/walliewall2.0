@@ -1,0 +1,40 @@
+
+Nav {
+    margin-top: 30px;
+    font-family: 'Hind Madurai', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    box-shadow: #1F2423 0px 10px 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#02AAAA;
+}
+
+li {
+    float: right;
+    
+}
+
+li a {
+    display: flex;
+    height: 75px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #1e8f8f;
+}
+
+.logo {
+    margin-left: 50px;
+    
+}

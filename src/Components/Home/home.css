@@ -1,0 +1,49 @@
+
+.l-block{
+    margin-top: 12%;
+    box-sizing: content-box;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: right;
+    padding-right: 20%;
+}
+
+input {
+    height: 25px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 20px 20px 5px;
+    border-color: #02AAAA;
+    border-width: 15px;
+    border-style: groove;
+}
+
+button {
+    height: 50px;
+    width: 230px;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 30px;
+    color: white;
+    background-color: #02AAAA;
+    
+
+}
+
+.sneek-peek {
+    box-sizing: content-box;
+    height: 600px;
+    width: 950px;
+    background-color: #02AAAA;
+    margin: 5%;
+    margin-left: 10%;
+    padding-top: 1%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    box-shadow: #1F2423 0px 10px 10px;
+    
+
+}

@@ -1,0 +1,78 @@
+.flex-container{
+    display: flex;
+    width: 100%;
+    height: 800px;
+}
+
+.profile-box{
+    box-sizing: content-box;
+    border-radius: 10px;
+    height: 600px;
+    width: 300px;
+    background-color: #02AAAA;
+    margin: 5%;
+}
+
+.pic img {
+    box-sizing: content-box;
+    border-radius: 10px;
+    height: 200px;
+    width: 250px;
+    margin: 25px;
+   
+}
+
+.bio {
+    box-sizing: content-box;
+    border-radius: 10px;
+    height: 275px;
+    width: 260px;
+    margin: 20px;
+    padding-top: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+.feed {
+    box-sizing: content-box;
+    border-radius: 10px;
+    height: 600px;
+    width: 500px;
+    background-color: #02AAAA;
+    margin: 5%;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    font-size: 25px;
+
+    
+}
+
+.feed-list{
+    box-sizing: border-box;
+    width: 450px;
+    height: 250px;
+}
+
+.feed-list img {
+    contain: content;
+    width: 100px;
+    width:300px;
+    float: right;
+}
+
+.messages { 
+    box-sizing: content-box;
+    border-radius: 10px;
+    height: 600px;
+    width: 300px;
+    background-color: #02AAAA;
+    margin: 5%;
+    padding-top: 10px;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    font-size: 25px;
+
+    
+}
