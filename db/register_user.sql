@@ -6,11 +6,11 @@ insert into w_user (
     password,
     profile_pic
     )VALUES(
-    ${first_name},
-    ${last_name},
-    ${username},
-    ${email},
-    ${password},
-    ${profile_pic}  
+    $1,
+    $2,
+    $3,
+    $4,
+    $5,
+    $6  
 )
-returning id, first_name, last_name, username, password, email, profile_pic;
+RETURNING *;

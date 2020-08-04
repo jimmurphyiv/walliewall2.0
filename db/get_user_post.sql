@@ -1,2 +1,2 @@
 select * from w_post
-where id = ${id};
+where id = $1;

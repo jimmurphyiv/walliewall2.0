@@ -14,7 +14,7 @@ module.exports = {
         let hash = bcrypt.hashSync(password, salt);
            
         const newUser = await db.register_user
-             ({ first_name, last_name, username, email, password: hash, profile_pic});
+             ( first_name, last_name, username, email, hash, profile_pic);
                 req.session.w_user = newUser[0];
                 res.status(201).send(req.session.w_user);
                
@@ -25,7 +25,7 @@ module.exports = {
         const {email, password} = req.body,
             db = req.app.get('db');
 
-        let foundUser = await db.check_user({email});
+        let foundUser = await db.check_user(email);
         if(!foundUser[0]){
             return res.status(400).send('Email not found');
         }
@@ -47,7 +47,7 @@ module.exports = {
     logMeIn: async (req,res) => {
         db = req.app.get('db');
         if(req.session.w_user){
-    const me = await db.get_user_id(req.session.w_user.id)
+    const me = await db.get_user_id(+req.session.w_user.id)
     res.status(200).send(me[0])
         }
     }

@@ -1,3 +1,3 @@
 update w_user
-set wallpaper = ${wallpaper}
-where id = ${id}
+set wallpaper = $2
+where id = $1

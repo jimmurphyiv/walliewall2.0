@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import axios from 'axios';
+import {getPosts} from '../../Dux/userReducer';
 import './profile.css'
 
 
@@ -42,9 +43,18 @@ class Profile extends Component{
         .catch(err => console.log(err));
     }
 
+    getUserPosts = () => {
+        const {id} = this.props.aR.w_user.id
+        console.log(this.props, id)
+        axios.get(`/api/post/${id}`)
+        .then(res => this.setState({userPosts: res.data}))
+        .catch(err => console.log(err));
+    }
+
     deletePost = (id) => {
+        console.log(id)
         axios.delete(`/api/post/${id}`)
-        .then(() => {this.getUserPosts()})
+        .then(() => {this.props.getPosts()})
         .catch(err => console.log(err))
     }
 
@@ -64,10 +74,12 @@ class Profile extends Component{
     render(){
         console.log(this.props)
         const mappedPost = this.props.uR.w_user.map((post, i) => {
-            return <div className='list' key={i}>
+            console.log(post)
+            return <div className='list' key={post.id}>
                 <p>{post.title}</p>
                 <img src={post.image} alt='post' />
                 <p>{post.content}</p>
+                <button onClick={() => this.deletePost(post.id)}>DELETE</button>
             </div>
             })
        
@@ -114,6 +126,7 @@ class Profile extends Component{
                     </div>
                     <div>
                         {mappedPost}
+                        <button onClick={this.deletePost}>DELETE</button>
                     </div>
                     <div>
                         <h3>Public Collection</h3>
@@ -139,4 +152,4 @@ const mapStateToProps = (reduxState) => {
 }
 
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps,{getPosts})(Profile);

@@ -32,10 +32,10 @@ class Dash extends Component {
    
     createPost = () => {
         const {title, image, content} = this.state
-        axios.post(`/api/post/${this.props.w_user.id}`, {title, image, content})
+        axios.post(`/api/post/${this.props.aR.w_user.id}`, {title, image, content})
         .then(() => {
             
-            this.getPosts();
+            this.props.getPosts();
             this.setState({image: ''});
         })
         .catch(err => console.log(err));
@@ -48,22 +48,11 @@ class Dash extends Component {
         .catch(err => console.log(err));
     }
   
-
-
-    deletePost = (id) => {
-        axios.delete(`/api/post/${id}`)
-        .then(() => {this.getUserPosts();
-        })
-        .catch(err => console.log(err))
-    }
-
-  
-
     render(){
         const mappedPost = this.props.uR.w_user.map((post, i) => {
         return <div className='feed-list' key={i}>
-            <p1>{post.title}</p1>
-            <p2>{post.content}</p2>
+            <p>{post.title}</p>
+            <p>{post.content}</p>
             <img src={post.image} alt='' />
             
             
@@ -107,7 +96,7 @@ class Dash extends Component {
                 <button onClick={this.createPost}>Post</button>
                 <div className='post-feed'>
                     {mappedPost}
-                    <button pnClick={this.deletePost}></button>
+                    
                 </div>
                 </div>
                 
