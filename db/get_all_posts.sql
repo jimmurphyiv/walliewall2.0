@@ -1,0 +1,1 @@
+select * from w_post;
