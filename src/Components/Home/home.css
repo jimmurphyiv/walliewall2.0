@@ -16,8 +16,12 @@ input {
     border-radius: 10px;
     margin: 20px 20px 5px;
     border-color: #02AAAA;
-    border-width: 15px;
-    border-style: groove;
+    border-width: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+   
+
 }
 
 button {
@@ -34,12 +38,12 @@ button {
 
 .sneek-peek {
     box-sizing: content-box;
-    height: 600px;
+    height: 500px;
     width: 950px;
     background-color: #02AAAA;
     margin: 5%;
     margin-left: 10%;
-    padding-top: 1%;
+    padding-top: 5px;
     text-align: center;
     border-radius: 20px;
     color: white;

@@ -36,7 +36,7 @@
 .feed {
     box-sizing: content-box;
     border-radius: 10px;
-    height: 600px;
+    height: 100%;
     width: 500px;
     background-color: #02AAAA;
     margin: 5%;
@@ -49,16 +49,40 @@
 }
 
 .feed-list{
+    display: flex;
+    flex-wrap: wrap;
     box-sizing: border-box;
     width: 450px;
-    height: 250px;
+    height: 200px;
 }
 
 .feed-list img {
-    contain: content;
+    height: 150px;
+    width: 250px;
+}
+
+.feed-list p1 {
+    height: 30px;
     width: 100px;
-    width:300px;
-    float: right;
+    background-color: ivory;
+    align-items: center;
+
+}
+
+.feed-list p2 {
+    box-sizing: border-box;
+    height: 60px;
+    width: 150px;
+    background-color: lawngreen;
+}
+
+.post-feed {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+   
+   
+    
 }
 
 .messages { 

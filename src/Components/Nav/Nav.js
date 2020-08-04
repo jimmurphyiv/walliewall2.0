@@ -50,9 +50,7 @@ render(){
                         <li>
                             <Link to='/Contact'>Contact</Link>
                         </li>
-                        <li>
-                            <Link to='/'>Home</Link>
-                        </li>
+                        
                         <li>
                         {this.props.aR.w_user.id ? <Link to='/Search'>Search</Link>  : null}
                         </li>
@@ -60,7 +58,7 @@ render(){
                         {this.props.aR.w_user.id ? <Link to='/profile'>Profile</Link> : null}
                         </li>
                         <li>
-                        {this.props.aR.w_user.id ? <Link to='/Dash'>Dash</Link> : null}
+                        {this.props.aR.w_user.id ? <Link to='/Dash'>Dash</Link> : <Link to='/'>Home</Link>}
                         </li>
                         <div className='logo'>
                             <img src={Logo} alt="Logo" />

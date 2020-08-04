@@ -62,10 +62,11 @@ class Dash extends Component {
     render(){
         const mappedPost = this.props.uR.w_user.map((post, i) => {
         return <div className='feed-list' key={i}>
-            <p>{post.title}</p>
-            <img src={post.image} alt='post' />
-            <p>{post.content}</p>
-            <button>Post</button>
+            <p1>{post.title}</p1>
+            <p2>{post.content}</p2>
+            <img src={post.image} alt='' />
+            
+            
         </div>
         })
        console.log(this.props)
@@ -92,7 +93,7 @@ class Dash extends Component {
                     placeholder='Add Title'
                     onChange={this.handleInput}/>
                 
-                <input
+                <input 
                     value={this.state.image}
                     name='image'
                     placeholder='Add Image URL'
@@ -104,8 +105,10 @@ class Dash extends Component {
                     placeholder='Add Content'
                     onChange={this.handleInput}/>
                 <button onClick={this.createPost}>Post</button>
-
-                {mappedPost}
+                <div className='post-feed'>
+                    {mappedPost}
+                    <button pnClick={this.deletePost}></button>
+                </div>
                 </div>
                 
                 <div className='messages'>
