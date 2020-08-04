@@ -1,7 +1,7 @@
 module.exports = {
 
     editProfile: async (req, res) => {
-        console.log('hit editprofile')
+        
         const db = req.app.get('db'),
             { id } = req.params,
             { first_name, last_name, username, profile_pic } = req.body,

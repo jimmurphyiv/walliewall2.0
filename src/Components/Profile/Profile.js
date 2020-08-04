@@ -59,15 +59,7 @@ class Profile extends Component{
     }
 
         
-    pushWallpaper = () => {
-        const {id} = this.props.aR.w_user.id
-        const {url} = this.state.aR.w_user
-        axios.put(`/api/wallpaper/${id}`, url)
-        .then(() => {
     
-        })
-        .catch(err => console.log(err));
-      }
 
 
 
@@ -121,18 +113,15 @@ class Profile extends Component{
                 }
             </section>
                 <section className='collections'>
+                    
                     <div>
-                       
-                    </div>
-                    <div>
+                        <h2>My Posts</h2>
                         {mappedPost}
                         <button onClick={this.deletePost}>DELETE</button>
                     </div>
+                    
                     <div>
-                        <h3>Public Collection</h3>
-                    </div>
-                    <div>
-                        <h3>Personal Collection</h3>
+                        <h3>My Collection</h3>
                     </div>
 
                 </section>

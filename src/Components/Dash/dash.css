@@ -86,7 +86,9 @@
 }
 
 .messages { 
-    box-sizing: content-box;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     height: 600px;
     width: 300px;
@@ -100,3 +102,10 @@
 
     
 }
+
+.uploader {
+    box-sizing: content-box;
+    height: 400px;
+    width: 290px;
+    background-color: white;
+}   

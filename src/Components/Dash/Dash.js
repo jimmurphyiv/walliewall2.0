@@ -13,7 +13,8 @@ class Dash extends Component {
             posts: [],
             title: '',
             image: '',
-            content: ''
+            content: '',
+            wallpaper: ''
            
         }
     }
@@ -25,7 +26,7 @@ class Dash extends Component {
 
         })
     }
-
+    
     handleInput = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
@@ -47,6 +48,16 @@ class Dash extends Component {
         .then(res => this.setState({posts: res.data}))
         .catch(err => console.log(err));
     }
+
+    pushWallpaper = () => {
+        const {id} = this.props.aR.w_user.id
+        const {url} = this.props.aR.w_user
+        axios.put(`/api/wallpaper/${id}`, url)
+        .then(() => {
+    
+        })
+        .catch(err => console.log(err));
+      }
   
     render(){
         const mappedPost = this.props.uR.w_user.map((post, i) => {
@@ -59,7 +70,7 @@ class Dash extends Component {
         </div>
         })
        console.log(this.props)
-    
+       console.log(this.state.wallpaper)
         return(
             <section className='flex-container'>
              
@@ -68,8 +79,9 @@ class Dash extends Component {
                     <img src={this.props.aR.w_user.profile_pic}
                     alt={this.props.aR.w_user.username}/>
                     </div>
-                    <div className='bio'>
-                    Subway tile crucifix sustainable man braid fanny pack fashion axe whatever bitters kitsch yr kombucha af messenger bag.Lomo selvage single-origin coffee try-hard beard subway tile jianbing crucifix thundercats vape. Lomo plaid humblebrag mumblecore, offal quinoa fixie taxidermy. Gochujang 3 wolf moon heirloom glossier, squid iceland poke yr slow-carb gluten-free hashtag bicycle rights. Humblebrag sriracha af yuccie, kombucha squid hella selvage
+                    <div className='username'>
+                        <p>{this.props.aR.w_user.username}</p>
+                   
                     </div>
                 </div>
                
@@ -101,7 +113,18 @@ class Dash extends Component {
                 </div>
                 
                 <div className='messages'>
-                    messages
+                <label htmlFor='wallpaper' ></label>
+
+                <input className="uploader"
+                    type="file"  
+                    id="wallpaper" 
+                    name="wallpaper"
+                    accept="image/*, video/*"
+                    onChange={this.handleInput}>
+                    
+                </input>
+                <button onClick={this.pushWallpaper}>Submit</button>
+                <img src={this.state.wallpaper} alt='' />
                 </div>
                 
             </section>
