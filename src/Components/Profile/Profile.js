@@ -5,6 +5,7 @@ import {getPosts} from '../../Dux/userReducer';
 import './profile.css'
 
 
+
 class Profile extends Component{
     constructor(props){
         super(props);
@@ -113,7 +114,9 @@ class Profile extends Component{
                 }
             </section>
                 <section className='collections'>
-                    
+                    <div>
+                      
+                    </div>
                     <div>
                         <h2>My Posts</h2>
                         {mappedPost}

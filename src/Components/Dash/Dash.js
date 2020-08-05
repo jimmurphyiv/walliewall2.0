@@ -2,6 +2,7 @@ import React,  {Component} from 'react';
 import {connect} from 'react-redux';
 import {getPosts} from '../../Dux/userReducer';
 import axios from 'axios';
+import Uploader from '../Uploader'
 import './dash.css';
 
 
@@ -51,8 +52,8 @@ class Dash extends Component {
 
     pushWallpaper = () => {
         const {id} = this.props.aR.w_user.id
-        const {url} = this.props.aR.w_user
-        axios.put(`/api/wallpaper/${id}`, url)
+        
+        axios.put(`/api/wallpaper/${id}`)
         .then(() => {
     
         })
@@ -110,21 +111,13 @@ class Dash extends Component {
                     {mappedPost}
                     
                 </div>
+                <div>
+                    
+                </div>
                 </div>
                 
                 <div className='messages'>
-                <label htmlFor='wallpaper' ></label>
-
-                <input className="uploader"
-                    type="file"  
-                    id="wallpaper" 
-                    name="wallpaper"
-                    accept="image/*, video/*"
-                    onChange={this.handleInput}>
-                    
-                </input>
-                <button onClick={this.pushWallpaper}>Submit</button>
-                <img src={this.state.wallpaper} alt='' />
+                    <Uploader />
                 </div>
                 
             </section>

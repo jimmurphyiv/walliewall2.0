@@ -103,9 +103,15 @@
     
 }
 
+#label {
+    box-sizing: content-box;
+    height: 30px;
+    width: 200px;
+}
+
 .uploader {
     box-sizing: content-box;
     height: 400px;
-    width: 290px;
+    width: 250px;
     background-color: white;
 }   

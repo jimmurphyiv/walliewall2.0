@@ -1,24 +1,56 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
+import axios from 'axios';
 import './search.css'
+import e from "express";
 
 class Search extends Component{
     constructor(props){
         super(props);
         this.state = {
-            catergorie: []
+            w_user: [],
+            search: []
         }
     }
 
+    componentDidMount(){
+        axios.get(`/api/users`)
+        .then(res => {
+            this.setState({
+                w_user: res.data
+            })
+        }).catch(err => console.log(err))
+    }
+
+    handleChange = () => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
+
+
+    searchResults = () => {
+        let output = [];
+        output = this.state.w_user.filter((e, i, a) => e.wallpaper === this.state.search)
+    }
+
+
+
     
     render(){
+        console.log(this.state.w_user)
         return(
             <div className='search-container'>
                 <section className='search-box'>
-                    <h3>SEARCH</h3>
-                    
+                    <h1>SEARCH</h1>
+                    <input 
+                    type='text'
+                    name='search'
+                    required
+                    onChange={this.handleChange}>
+                    </input>
                     <button>KEYWORD</button>
                     
-                    <button>TYPE</button>
+                   
                 </section>
 
                 <section className='catergories-box'>
@@ -52,4 +84,9 @@ class Search extends Component{
     }
 }
 
-export default Search;
+const mapStateToProps = (reduxState) => {
+    return{
+        uR: reduxState.userReducer  
+    }
+}
+export default connect(mapStateToProps)(Search);

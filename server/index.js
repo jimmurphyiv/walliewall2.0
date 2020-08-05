@@ -42,6 +42,7 @@ app.get('/auth/me', authCtrl.logMeIn);
 //User endpoints
 app.put('/api/profile/:id', mainCtrl.editProfile);
 app.put('/api/wallpaper/:id', mainCtrl.updateWallpaper);
+app.get('/api/users', mainCtrl.getUsers)
 
 //Post endpoints
 app.post('/api/post/:author_id', mainCtrl.createPost);

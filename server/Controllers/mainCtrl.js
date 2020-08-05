@@ -30,6 +30,13 @@ module.exports = {
         return res.status(200).send(allPosts)
     },
 
+    getUsers: async (req, res) => {
+        const db = req.app.get('db'),
+
+            allUsers = await db.get_all_users();
+        return res.status(200).send(allUsers)
+    },
+
 
     getUserPosts: async (req, res) => {
         const db = req.app.get('db');
