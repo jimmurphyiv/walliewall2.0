@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {connect} from 'react-redux';
 import axios from 'axios';
 import './search.css'
-import e from "express";
+
 
 class Search extends Component{
     constructor(props){
@@ -22,7 +22,7 @@ class Search extends Component{
         }).catch(err => console.log(err))
     }
 
-    handleChange = () => {
+    handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
 
@@ -46,7 +46,7 @@ class Search extends Component{
                     type='text'
                     name='search'
                     required
-                    onChange={this.handleChange}>
+                    onChange={(e) => this.handleChange(e)}>
                     </input>
                     <button>KEYWORD</button>
                     
