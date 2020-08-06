@@ -5,6 +5,6 @@ last_name varchar(100),
 username varchar(100),
 password varchar(250),
 email varchar(250),
-wallpaper text,
+wallpaper varchar(500),
 profile_pic text
 );

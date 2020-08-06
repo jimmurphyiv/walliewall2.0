@@ -60,10 +60,11 @@ module.exports = {
         const db = req.app.get('db');
         const { id } = req.params,
             { wallpaper } = req.body
-        console.log(id.wallpaper)
-        addWallpaper = await db.add_wallpaper([id, wallpaper]);
+        console.log(id)
+        console.log(wallpaper)
+        addWallpaper = await db.add_wallpaper(id, wallpaper);
+        console.log(addWallpaper)
         return res.status(200).send(addWallpaper)
-    }
-
+    },
 
 }

@@ -7,6 +7,7 @@ const mailCtrl = require('./Controllers/mailCtrl');
 const authCtrl = require('./Controllers/authCtrl');
 
 
+
 const {SERVER_PORT,
     CONNECTION_STRING,
     SESSION_SECRET,
@@ -15,6 +16,9 @@ const {SERVER_PORT,
 const app =express();
 
 app.use(express.json());
+
+
+
 
 app.use(session({
     resave: false,
@@ -41,8 +45,12 @@ app.get('/auth/me', authCtrl.logMeIn);
 
 //User endpoints
 app.put('/api/profile/:id', mainCtrl.editProfile);
+app.get('/api/users', mainCtrl.getUsers);
+
+//Wallpaper endpoints
 app.put('/api/wallpaper/:id', mainCtrl.updateWallpaper);
-app.get('/api/users', mainCtrl.getUsers)
+
+
 
 //Post endpoints
 app.post('/api/post/:author_id', mainCtrl.createPost);

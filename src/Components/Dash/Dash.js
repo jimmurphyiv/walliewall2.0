@@ -2,8 +2,9 @@ import React,  {Component} from 'react';
 import {connect} from 'react-redux';
 import {getPosts} from '../../Dux/userReducer';
 import axios from 'axios';
-import Uploader from '../Uploader'
 import './dash.css';
+import SimpleImage from '../SimpleImage';
+
 
 
 
@@ -52,13 +53,13 @@ class Dash extends Component {
 
     pushWallpaper = () => {
         const {id} = this.props.aR.w_user.id
-        
         axios.put(`/api/wallpaper/${id}`)
         .then(() => {
-    
-        })
+         })
         .catch(err => console.log(err));
       }
+
+    
   
     render(){
         const mappedPost = this.props.uR.w_user.map((post, i) => {
@@ -70,8 +71,8 @@ class Dash extends Component {
             
         </div>
         })
-       console.log(this.props)
-       console.log(this.state.wallpaper)
+       console.log(this.props, 'hit1')
+       console.log(this.state.wallpaper, 'hit2')
         return(
             <section className='flex-container'>
              
@@ -86,10 +87,10 @@ class Dash extends Component {
                     </div>
                 </div>
                
-                <div className='feed'>
-                    <h2>FEED</h2>
+            <div className='feed'>
+                <h2>FEED</h2>
                     
-                    <input 
+                <input 
                     value={this.state.title}
                     name='title'
                     placeholder='Add Title'
@@ -106,18 +107,17 @@ class Dash extends Component {
                     name='content'
                     placeholder='Add Content'
                     onChange={this.handleInput}/>
+
                 <button onClick={this.createPost}>Post</button>
+
                 <div className='post-feed'>
                     {mappedPost}
-                    
                 </div>
-                <div>
-                    
-                </div>
-                </div>
+              
+            </div>
                 
                 <div className='messages'>
-                    <Uploader />
+                    <SimpleImage />
                 </div>
                 
             </section>
