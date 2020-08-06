@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "aws-sdk": "^2.727.1",
     "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
@@ -27,7 +28,8 @@
     "react-simply-carousel": "^2.1.9",
     "redux": "^4.0.5",
     "redux-promise-middleware": "^6.1.2",
-    "sass": "^1.26.10"
+    "sass": "^1.26.10",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

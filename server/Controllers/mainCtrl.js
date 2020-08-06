@@ -59,10 +59,10 @@ module.exports = {
     updateWallpaper: async (req, res) => {
         const db = req.app.get('db');
         const { id } = req.params,
-            { wallpaper } = req.body
+            { photo } = req.body
         console.log(id)
-        console.log(wallpaper)
-        addWallpaper = await db.add_wallpaper(id, wallpaper);
+        console.log(photo)
+    const addWallpaper = await db.add_wallpaper(id, photo);
         console.log(addWallpaper)
         return res.status(200).send(addWallpaper)
     },

@@ -71,8 +71,8 @@ class Dash extends Component {
             
         </div>
         })
-       console.log(this.props, 'hit1')
-       console.log(this.state.wallpaper, 'hit2')
+    //    console.log(this.props, 'hit1')
+    //    console.log(this.state.wallpaper, 'hit2')
         return(
             <section className='flex-container'>
              
