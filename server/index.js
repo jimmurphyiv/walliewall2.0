@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const aws = require('aws-sdk');
 const cors = require('cors');
 const express = require('express');
@@ -31,6 +32,15 @@ app.use(session({
     secret: SESSION_SECRET,
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 21}
 }));
+
+if(NODE_ENV === 'production') {
+    app.use(express.static( `${__dirname}/../build`))
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '../build/index.html'))
+    })
+  
+  }
 
 massive({
     connectionString: CONNECTION_STRING,
