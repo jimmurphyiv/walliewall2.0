@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {getPosts} from '../../Dux/userReducer';
 import axios from 'axios';
 import './dash.css';
-import SimpleImage from '../SimpleImage';
+
 
 
 
@@ -51,45 +51,52 @@ class Dash extends Component {
         .catch(err => console.log(err));
     }
 
-    pushWallpaper = () => {
-        const {id} = this.props.aR.w_user.id
-        axios.put(`/api/wallpaper/${id}`)
-        .then(() => {
-         })
-        .catch(err => console.log(err));
-      }
+  
 
     
   
     render(){
         const mappedPost = this.props.uR.w_user.map((post, i) => {
-        return <div className='feed-list' key={i}>
-            <p>{post.title}</p>
-            <p>{post.content}</p>
+        return <div className='mapped-posts' key={i}>
+            <div className='post-info'>
+                <div className='title'>
+                    <p>{post.title}</p>
+                </div>
+                <div className='content'>
+                    <p>{post.content}</p>
+                </div>
+            </div>
             <img src={post.image} alt='' />
             
             
         </div>
         })
-    //    console.log(this.props, 'hit1')
-    //    console.log(this.state.wallpaper, 'hit2')
+     
         return(
             <section className='flex-container'>
              
                 <div className='profile-box'>
                     <div className='pic'>
-                    <img src={this.props.aR.w_user.profile_pic}
-                    alt={this.props.aR.w_user.username}/>
+                        <img src={this.props.aR.w_user.profile_pic}
+                        alt={this.props.aR.w_user.username}/>
+                    </div>
+                    <div className='name'>
+                        <p>
+                            {this.props.aR.w_user.first_name}  {this.props.aR.w_user.last_name}
+                        </p>
                     </div>
                     <div className='username'>
                         <p>{this.props.aR.w_user.username}</p>
-                   
                     </div>
+                   
+                            
+                        
+                   
                 </div>
                
-            <div className='feed'>
-                <h2>FEED</h2>
-                    
+            <div className='feed-container'>
+                <h2>Show What You Got</h2>
+                <div className='post-input'>
                 <input 
                     value={this.state.title}
                     name='title'
@@ -108,17 +115,15 @@ class Dash extends Component {
                     placeholder='Add Content'
                     onChange={this.handleInput}/>
 
-                <button onClick={this.createPost}>Post</button>
-
+                <button className='post-btn' onClick={this.createPost}>Post</button>
+                </div>
                 <div className='post-feed'>
                     {mappedPost}
                 </div>
               
             </div>
                 
-                <div className='messages'>
-                    <SimpleImage />
-                </div>
+                
                 
             </section>
 
