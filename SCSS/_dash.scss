@@ -1,0 +1,7 @@
+.proContainer {
+    @include flexCenter(row)
+}
+
+.profile-box {
+    @include proBox;
+}

@@ -73,7 +73,7 @@ class Dash extends Component {
         })
      
         return(
-            <section className='flex-container'>
+            <section className='proContainer'>
              
                 <div className='profile-box'>
                     <div className='pic'>

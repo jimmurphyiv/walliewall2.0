@@ -1,0 +1,22 @@
+@import './resets';
+@import './var';
+
+@function weight($weight-name) {
+    @return map.get($font-weight, $weight-name)
+}
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin proBox {
+    border: groove;
+    border-width: 10px;
+    border-radius: 10px;
+    border-color: #53615f;
+    box-shadow: #000000 0px 15px 25px ;
+
+}
