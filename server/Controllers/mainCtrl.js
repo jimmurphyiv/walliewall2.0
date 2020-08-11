@@ -6,7 +6,7 @@ module.exports = {
             { id } = req.params,
             { first_name, last_name, username, profile_pic } = req.body,
 
-            updated = await db.edit_profile( +id, first_name, last_name, username, profile_pic );
+        updated = await db.edit_profile( +id, first_name, last_name, username, profile_pic );
         if (!updated[0]) {
             return res.status(200).send(updated)
         }
@@ -26,14 +26,14 @@ module.exports = {
     getPosts: async (req, res) => {
         const db = req.app.get('db'),
 
-            allPosts = await db.get_all_posts();
+        allPosts = await db.get_all_posts();
         return res.status(200).send(allPosts)
     },
 
     getUsers: async (req, res) => {
         const db = req.app.get('db'),
 
-            allUsers = await db.get_all_users();
+        allUsers = await db.get_all_users();
         return res.status(200).send(allUsers)
     },
 

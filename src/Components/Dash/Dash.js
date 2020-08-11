@@ -24,7 +24,7 @@ class Dash extends Component {
     componentDidMount(){
         this.props.getPosts()
         this.setState({
-           posts: this.props.w_user
+           posts: this.props.uR.w_user
 
         })
     }
@@ -46,7 +46,7 @@ class Dash extends Component {
 
     
     getUserPosts = () => {
-        axios.get(`/api/post/${this.props.w_user.id}`)
+        axios.get(`/api/post/${this.props.uR.w_user.id}`)
         .then(res => this.setState({posts: res.data}))
         .catch(err => console.log(err));
     }
@@ -56,6 +56,7 @@ class Dash extends Component {
     
   
     render(){
+        console.log(this.props.uR.w_user)
         const mappedPost = this.props.uR.w_user.map((post, i) => {
         return <div className='mapped-posts' key={i}>
             <div className='post-info'>
