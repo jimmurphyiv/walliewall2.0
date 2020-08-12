@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import {getUser} from '../../Dux/authReducer'
 import {getPosts} from '../../Dux/userReducer';
-import './profile.css'
+import './profile.scss'
 
 
 

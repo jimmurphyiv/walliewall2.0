@@ -4,13 +4,8 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import {getUser} from '../../Dux/authReducer';
 import MyCarousel from '../../Components/MyCarousel/MyCarousel';
-
-import './home.css';
+import './home.scss';
 import Nav from '../Nav/Nav';
-
-
-
-
 
 
 class Home extends Component{
@@ -45,27 +40,29 @@ class Home extends Component{
         return(
             <div>
                 <Nav />
-                <div className='l-block'>
-                <input 
-                    value={this.state.email}
-                    name='email'
-                    placeholder='EMAIL'
-                    onChange={this.handleInput}/>
-                <input 
-                    type='password'
-                    value={this.state.password}
-                    name='password'
-                    placeholder='PASSWORD'
-                    onChange={this.handleInput}/>
-                <button onClick={this.handleLogin} >LOGIN</button>
-                
-            <Link to='/Auth'>
-                    <button onClick={this.handleRegister} >SIGN-UP!</button></Link>
-                </div>
-                    <div className='sneek-peek'>
-                    <h1>SNEEK PEEK</h1>
-                    <MyCarousel />
-                </div>
+                    <div className='flex-home'>
+                        <div className='l-block'>
+                        <input 
+                            value={this.state.email}
+                            name='email'
+                            placeholder='EMAIL'
+                            onChange={this.handleInput}/>
+                        <input 
+                            type='password'
+                            value={this.state.password}
+                            name='password'
+                            placeholder='PASSWORD'
+                            onChange={this.handleInput}/>
+                        <button onClick={this.handleLogin} >LOGIN</button>
+                        
+                        <Link to='/Auth'>
+                            <button onClick={this.handleRegister} >SIGN-UP!</button></Link>
+                        </div>
+                            <div className='sneek-peek'>
+                                <h1>Sneek Peek</h1>
+                            <MyCarousel />
+                            </div>
+                    </div>
             </div>
         )
     }

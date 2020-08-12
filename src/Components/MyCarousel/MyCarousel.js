@@ -8,6 +8,7 @@ import fiveJpeg from './wwcarousel/5.jpeg';
 import sixJpeg from './wwcarousel/6.jpeg';
 import sevenJpeg from './wwcarousel/7.jpeg';
 import eightJpeg from './wwcarousel/8.jpeg';
+import '../MyCarousel/mycarousel.scss';
 
 function MyCarousel() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -16,7 +17,7 @@ function MyCarousel() {
     oneJpeg, twoJpeg, threeJpeg, fourJpeg, fiveJpeg, sixJpeg, sevenJpeg, eightJpeg ]
 
   return (
-    <div>
+    <div className="mycarousel">
       <Carousel
         containerProps={{
           style: {
@@ -64,7 +65,7 @@ function MyCarousel() {
             }}
             key={index}
           >
-            <img src={item} alt='default wallpapers' style={{
+            <img src={item} alt='default wallpapers' style={{ 
               width: 720,
               height: 405,
 

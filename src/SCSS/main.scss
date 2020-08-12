@@ -1,16 +1,12 @@
 @import './resets';
 @import './var';
 
+
 @function weight($weight-name) {
     @return map.get($font-weight, $weight-name)
 }
 
-@mixin flexCenter($direction) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: $direction;
-}
+
 
 @mixin proBox {
     border: groove;

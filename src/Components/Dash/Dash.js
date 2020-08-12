@@ -2,7 +2,8 @@ import React,  {Component} from 'react';
 import {connect} from 'react-redux';
 import {getPosts} from '../../Dux/userReducer';
 import axios from 'axios';
-import './dash.css';
+import './dash.scss';
+
 
 
 
@@ -96,7 +97,7 @@ class Dash extends Component {
                 </div>
                
             <div className='feed-container'>
-                <h2>Show What You Got</h2>
+                <h2>Show Us What You Got</h2>
                 <div className='post-input'>
                 <input 
                     value={this.state.title}

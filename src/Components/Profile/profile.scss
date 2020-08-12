@@ -1,0 +1,165 @@
+$accent-color: #02AAAA;
+$text-color: #fff;
+$secondary-text-color: #53615f;
+$primary-background-color: #37403F;
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin proBox {
+    border: groove;
+    border-width: 10px;
+    border-radius: 10px;
+    border-color: #53615f;
+    box-shadow: #000000 0px 15px 25px ;
+}
+
+@mixin contBox {
+    border: groove;
+    border-width: 10px;
+    border-radius: 10px;
+    border-color: #53615f;
+}
+
+.profile-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+
+.my-profile-box{
+    @include proBox;
+    height: 450px;
+    width: 300px;
+    background-color: $accent-color;
+    margin: 5%;
+    
+}
+
+.pic img {
+    @include contBox;
+    height: 200px;
+    width: 250px;
+    margin: 5%;
+}
+
+.my-name p {
+    @include flexCenter(row);
+    @include contBox;
+    margin: 5%;
+    height: 40px;
+    width: 250px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color:$primary-background-color;   
+}
+
+.my-username p {
+    @include flexCenter(row);
+    @include contBox;
+    height: 60px;
+    width: 250px;
+    margin: 5%;
+    font-size: 40px;
+    font-weight: bold;
+    color: $secondary-text-color;
+    background-color: #fff;
+}
+
+#edit-button {
+    @include flexCenter(row);
+    margin-top: 100px;
+    box-shadow: #000000 0px 15px 25px ;
+}
+
+.edit-profile-inputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    @include proBox;
+}
+
+.my-mapped-post {
+    display: flex;
+    margin-top: 5%;
+    padding: 10px;
+    width: 550px;
+    height: 240px;
+    @include proBox;
+    background-color:$primary-background-color;
+}
+
+.my-posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include proBox;
+    height: 850px;
+    width: 700px;
+    background-color: $accent-color;
+    margin: 5%;
+    color: #fff;
+    font-size: 25px;
+    overflow: scroll;   
+}
+
+.my-post-info {
+    @include flexCenter(column);
+    margin-top: 2%;
+}
+
+.my-pic img {
+    display: flex;
+    @include contBox;
+    height: 200px;
+    width: 250px;
+    margin: 5%;
+}
+
+.pic-button img {
+    display: flex;
+    flex-wrap: wrap;
+    @include contBox;
+    height: 150px;
+    width: 250px;
+    margin: 2%;
+}
+
+.pic-button button{
+    display: flex;
+    justify-content: center;
+}
+
+.my-title {
+    @include flexCenter(row);
+    @include contBox;
+    margin: 1%;
+    height: 40px;
+    width: 250px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $primary-background-color;
+    background-color: #fff;
+}
+
+.my-content {
+    flex-wrap: wrap;
+    @include flexCenter(column);
+    @include contBox;
+    margin: 5%;
+    height: 80px;
+    width: 250px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: $primary-background-color;
+    background-color: #fff;
+}

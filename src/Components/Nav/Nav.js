@@ -4,20 +4,25 @@ import {connect} from 'react-redux';
 import {getUser, clearUser} from '../../Dux/authReducer';
 import axios from 'axios';
 import Logo from '../Nav/wallieWall_logo.png';
-import './nav.css';
+import './nav.scss';
 
 
 class Nav extends Component {
     constructor(props){
         super(props);
             this.state = {
-                w_user: []
+                w_user: [],
+                dropdownView: false
             }
         }
 
         componentDidMount(){
             this.logMeIn()
         }
+
+        toggleDropdown = () => {
+            this.setState({dropdownView: !this.state.dropdownView})
+          }
         
         logMeIn = () => (
             axios.get('/auth/me')
@@ -37,11 +42,38 @@ class Nav extends Component {
             }
 
 render(){
-    // console.log(this.props)
+    
         return (
-            <div className='Nav'>
-                
-                <nav>
+            <div className='Nav-main'>
+               
+                <img src={Logo} alt="Logo" />
+                      
+                <nav className='Nav-desktop'>
+                    <ul>
+                       <li>
+                       {this.props.aR.w_user.id ?<Link to='/'
+                             onClick={this.handleLogout} >Logout</Link> : null}
+                        </li>
+                        <li>
+                            <Link to='/Contact'>Contact</Link>
+                        </li>
+                        
+                        <li>
+                        {this.props.aR.w_user.id ? <Link to='/Search'>Search</Link>  : null}
+                        </li>
+                        <li>
+                        {this.props.aR.w_user.id ? <Link to='/profile'>Profile</Link> : null}
+                        </li>
+                        <li>
+                        {this.props.aR.w_user.id ? <Link to='/Dash'>Dash</Link> : <Link to='/'>Home</Link>}
+                        </li>
+                        
+                    </ul>
+                </nav>
+    <div className='dropdown' onClick={this.toggleDropdown}> /// </div>
+          {this.state.dropdownView
+            ? (
+                <nav className='ipad-menu'>
                     <ul>
                        <li>
                        {this.props.aR.w_user.id ?<Link to='/'
@@ -65,7 +97,10 @@ render(){
                         </div>
                     </ul>
                 </nav>
-            </div> 
+                )
+                : null}
+            </div>
+           
         ) 
     }
 }
