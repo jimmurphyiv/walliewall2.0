@@ -92,9 +92,7 @@ render(){
                         <li>
                         {this.props.aR.w_user.id ? <Link to='/Dash'>Dash</Link> : <Link to='/'>Home</Link>}
                         </li>
-                        <div className='logo'>
-                            <img src={Logo} alt="Logo" />
-                        </div>
+                       
                     </ul>
                 </nav>
                 )

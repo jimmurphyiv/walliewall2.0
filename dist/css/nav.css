@@ -83,7 +83,6 @@ li a:hover {
         -ms-flex-align: center;
             align-items: center;
     padding-right: 5%;
-    margin-top: 30px;
     background-color: #02AAAA;
   }
   img {
@@ -102,13 +101,13 @@ li a:hover {
     text-shadow: -2px -2px 2px #37403F;
     color: #fff;
   }
-  .mobile-menu {
+  .ipad-menu {
     display: initial;
-    height: 250px;
-    width: 250px;
+    height: 400px;
+    width: 150px;
     background: #02AAAA;
     position: fixed;
-    top: 125px;
+    top: 90px;
     right: 0px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -117,9 +116,6 @@ li a:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
   }
 }
 /*# sourceMappingURL=nav.css.map */
