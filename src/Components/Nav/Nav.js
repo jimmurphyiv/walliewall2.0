@@ -8,13 +8,11 @@ import './nav.scss';
 
 
 class Nav extends Component {
-    constructor(props){
-        super(props);
-            this.state = {
+                state = {
                 w_user: [],
                 dropdownView: false
             }
-        }
+      
 
         componentDidMount(){
             this.logMeIn()
@@ -34,12 +32,10 @@ class Nav extends Component {
         handleLogout = () => {
             axios.get('/auth/logout')
             .then (() => {
-            
             this.props.clearUser()
             this.props.history.push('/')
             })
-            .catch(err => console.log(err, 'You up and Logged Out'))
-            }
+            .catch(err => console.log(err, 'You up and Logged Out'))}
 
 render(){
     
